@@ -1,3 +1,3 @@
 # emacsd-config
 
-emacs.d config based on Pawel Szulc one.
+emacs.d config based on rabbitonweb emacs config.
