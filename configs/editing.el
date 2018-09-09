@@ -72,6 +72,15 @@
     (beginning-of-line (or (and arg (1+ arg)) 2))
     (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
+(defun goto-next-line-with-ident ()
+  (interactive)
+  (end-of-line)
+  (indent-new-comment-line)
+  nil)
+(global-set-key [(control return)] 'goto-next-line-with-ident)
+
+
+
 (defun double-line (arg)
   "copy line and place it below the original"
   (interactive "p")
@@ -84,6 +93,11 @@
 (global-set-key (kbd "C-s-c C-s-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+
+
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;;(global-undo-tree-mode 1)
+
+
+
