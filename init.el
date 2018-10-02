@@ -18,6 +18,8 @@
 (load "~/.emacs.d/configs/windows")
 (load "~/.emacs.d/configs/project")
 (load "~/.emacs.d/configs/scala")
+(load "~/.emacs.d/configs/haskell")
+
 
 
 (custom-set-variables
