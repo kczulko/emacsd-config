@@ -113,3 +113,8 @@
 (package-conditional-install 'dockerfile-mode)
 (require 'dockerfile-mode)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
+;; bazel-build mode
+(package-conditional-install 'bazel-mode)
+(require 'bazel-mode)
+(add-to-list 'auto-mode-alist '("BUILD\\'" . bazel-mode))

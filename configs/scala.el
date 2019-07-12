@@ -6,6 +6,8 @@
   :ensure t
   :pin melpa-stable)
 
+(setq ensime-startup-notification nil)
+
 ;;(require 'ensime)
 
 
