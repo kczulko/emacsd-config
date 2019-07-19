@@ -99,6 +99,8 @@
 
 ;;(global-undo-tree-mode 1)
 
+;; magit - ediff working without additional frames
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 ;; markdown mode
 (use-package markdown-mode
@@ -118,3 +120,4 @@
 (package-conditional-install 'bazel-mode)
 (require 'bazel-mode)
 (add-to-list 'auto-mode-alist '("BUILD\\'" . bazel-mode))
+
