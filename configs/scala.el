@@ -2,28 +2,51 @@
 
 (require 'use-package)
 
-(use-package ensime
-  :ensure t
-  :pin melpa-stable)
+;; Enable defer and ensure by default for use-package
+(setq use-package-always-defer t
+      use-package-always-ensure t)
 
-(setq ensime-startup-notification nil)
+;; Enable scala-mode and sbt-mode
+(use-package scala-mode
+  :mode "\\.s\\(cala\\|bt\\)$")
 
-;;(require 'ensime)
+(use-package sbt-mode
+  :commands sbt-start sbt-command
+  :config
+  ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
+  ;; allows using SPACE when in the minibuffer
+  (substitute-key-definition
+   'minibuffer-complete-word
+   'self-insert-command
+   minibuffer-local-completion-map))
 
+(use-package flycheck
+  :init (global-flycheck-mode))
 
-;;(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+(use-package lsp-mode
+  ;; Optional - enable lsp-mode automatically in scala files
+  :hook (scala-mode . lsp)
+  :config (setq lsp-prefer-flymake nil))
 
-;;(require 'yasnippet)
+;; (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+(use-package lsp-ui)
 
+;; C-M-. for searching symbol like class or sth.
+(use-package helm-lsp :commands helm-lsp-workspace-symbol)
+(global-set-key (kbd "C-M-.") 'helm-lsp-workspace-symbol)
 
-;;(setq yas-snippet-dirs
-;;      '("~/.emacs.d/snippets"
-;;        "~/.emacs.d/my_snippets"
-;;	))
-;;(yas-reload-all)
-;;(add-hook 'scala-mode-hook #'yas-minor-mode)
-;;(with-eval-after-load 'company
-;;  (define-key company-active-map [tab] nil)
-;;  )
+;; Add company-lsp backend for metals
+(use-package company-lsp)
 
-;;(add-hook 'scala-mode-hook #'linum-mode)
+(require 'yasnippet)
+
+(setq yas-snippet-dirs
+     '("~/.emacs.d/snippets"
+       "~/.emacs.d/my_snippets"
+	))
+(yas-reload-all)
+
+;; lsp-mode -> what works:
+;; lsp-format-buffer -> starts scalafmt
+;; lsp-find-definition -> M-.
+;; lsp-find-references -> works and it would be great to connect this with helm

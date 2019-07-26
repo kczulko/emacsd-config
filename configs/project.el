@@ -20,6 +20,7 @@
 (key-chord-define-global "cm" 'helm-projectile-switch-project)
 (key-chord-define-global "pf" 'helm-projectile-find-file)
 (key-chord-define-global "gm" 'helm-do-ag-project-root)
+(key-chord-define-global "hi" 'helm-imenu)
 
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
