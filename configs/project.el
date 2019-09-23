@@ -7,6 +7,10 @@
       recentf-max-menu-items 15)
 (recentf-mode +1)
 
+(setq helm-always-two-windows nil)
+(setq helm-display-buffer-default-height 23)
+(setq helm-default-display-buffer-functions '(display-buffer-in-side-window))
+
 (global-set-key (kbd "C-c F") 'helm-do-ag-project-root)
 
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -36,3 +40,4 @@
 (projectile-global-mode 1)
 
 (global-linum-mode 1)
+

@@ -28,6 +28,8 @@
   :hook (scala-mode . lsp)
   :config (setq lsp-prefer-flymake nil))
 
+(setq lsp-file-watch-threshold nil)
+
 ;; (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 (use-package lsp-ui)
 
