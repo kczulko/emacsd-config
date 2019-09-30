@@ -6,6 +6,8 @@
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 (package-initialize)
 
+(setq package-check-signature nil)
+
 ;;(when (not package-archive-contents)
 ;;  (package-refresh-contents))
 

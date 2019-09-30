@@ -1,0 +1,4 @@
+# name : case-class-scala
+# key : casec
+# --
+case class ${1:ClassName}(${2:paramName}: ${3:ParamType})$0

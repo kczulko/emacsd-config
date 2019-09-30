@@ -1,0 +1,7 @@
+# name: algebraid-data-type
+# key: adt
+# --
+sealed trait ${1:A}
+case class ${2:B}(${3:name}: ${4:Type}) extends $1
+case class ${5:C}(${6:name}: ${7:Type}) extends $1
+case class ${8:D}(${9:name}: ${10:Type}) extends $1

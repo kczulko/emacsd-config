@@ -1,0 +1,7 @@
+# name: generic-algebraic-data-type
+# key: gadt
+# --
+sealed trait ${1:A}[${2:A}]
+case class ${3:B}[${4:A}](${5:name}: ${6:Type}) extends $1[$4]
+case class ${7:C}[${8:A}](${9:name}: ${10:Type}) extends $1[$8]
+case class ${11:D}[${12:A}](${13:name}: ${14:Type}) extends $1[$12]
