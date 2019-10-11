@@ -11,6 +11,8 @@
 (setq helm-display-buffer-default-height 23)
 (setq helm-default-display-buffer-functions '(display-buffer-in-side-window))
 
+(global-set-key (kbd "C-c S") 'magit-status)
+
 (global-set-key (kbd "C-c F") 'helm-do-ag-project-root)
 
 (global-set-key (kbd "M-x") 'helm-M-x)
