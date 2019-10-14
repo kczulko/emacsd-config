@@ -1,0 +1,5 @@
+# name : case-object-scala
+# key : caseo
+# --
+case object ${1:Name}
+$0
