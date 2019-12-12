@@ -102,25 +102,6 @@
 ;; magit - ediff working without additional frames
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-;; markdown mode
-(use-package markdown-mode
-  :ensure t
-  :commands (markdown-mode gfm-mode)
-  :mode (("README\\.md\\'" . gfm-mode)
-         ("\\.md\\'" . markdown-mode)
-         ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "multimarkdown"))
-
-;; dockerfile mode
-(package-conditional-install 'dockerfile-mode)
-(require 'dockerfile-mode)
-(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
-
-;; bazel-build mode
-(package-conditional-install 'bazel-mode)
-(require 'bazel-mode)
-(add-to-list 'auto-mode-alist '("BUILD\\'" . bazel-mode))
-
 ;; regexps
 (require 'visual-regexp-steroids)
 (define-key global-map (kbd "C-c r") 'vr/replace)

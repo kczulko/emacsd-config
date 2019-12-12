@@ -18,11 +18,14 @@
 (load "~/.emacs.d/configs/install")
 (load "~/.emacs.d/configs/ui")
 (load "~/.emacs.d/configs/editing")
+(load "~/.emacs.d/configs/dockerfile")
+(load "~/.emacs.d/configs/bazel")
+(load "~/.emacs.d/configs/markdown")
+(load "~/.emacs.d/configs/nix")
 (load "~/.emacs.d/configs/windows")
 (load "~/.emacs.d/configs/project")
 (load "~/.emacs.d/configs/scala")
 (load "~/.emacs.d/configs/haskell")
-
 
 
 (custom-set-variables

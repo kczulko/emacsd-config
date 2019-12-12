@@ -1,0 +1,6 @@
+# name: pattern-match
+# key: pmatch
+# --
+$1 match {
+  case $2 => $0
+}
