@@ -52,3 +52,4 @@
 ;; lsp-format-buffer -> starts scalafmt
 ;; lsp-find-definition -> M-.
 ;; lsp-find-references -> works and it would be great to connect this with helm
+(global-set-key (kbd "M-n") 'lsp-find-references)

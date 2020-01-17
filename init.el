@@ -1,4 +1,8 @@
 (require 'package)
+
+;; bug workaround!
+;; (setq package-check-signature nil)
+
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (add-to-list 'package-archives '("melpa-org" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade.ferrier.me.uk/packages/"))
@@ -14,19 +18,28 @@
 ;; save when loosing focus
 ;; (add-hook 'focus-out-hook 'save-some-buffers)
 
-;; order matter
-(load "~/.emacs.d/configs/install")
-(load "~/.emacs.d/configs/ui")
-(load "~/.emacs.d/configs/editing")
-(load "~/.emacs.d/configs/dockerfile")
-(load "~/.emacs.d/configs/bazel")
-(load "~/.emacs.d/configs/markdown")
-(load "~/.emacs.d/configs/nix")
-(load "~/.emacs.d/configs/windows")
-(load "~/.emacs.d/configs/project")
-(load "~/.emacs.d/configs/scala")
-(load "~/.emacs.d/configs/haskell")
+;; bug workaround!
+(require 'subr-x)
 
+;;read custom configuration, order matter!
+(setq configs '(
+                "install"
+                "ui"
+                "editing"
+                "dockerfile"
+                "bazel"
+                "markdown"
+                "nix"
+                "windows"
+                "project"
+                "scala"
+                "haskell"
+                )
+      )
+
+(dolist (config configs)
+  (load (format "%s/%s" "~/.emacs.d/configs" config))
+  )
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
