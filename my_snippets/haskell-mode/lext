@@ -1,0 +1,5 @@
+# name: language-extension
+# key: lext
+# --
+{-# LANGUAGE $1 #-}
+$0

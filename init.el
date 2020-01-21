@@ -33,6 +33,8 @@
                 "windows"
                 "project"
                 "scala"
+                "yaml"
+                "yasnippet"
                 "haskell"
                 )
       )

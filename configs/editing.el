@@ -1,4 +1,4 @@
-(packages-conditional-install '(eno goto-chg multiple-cursors avy undo-tree string-edit highlight-symbol visual-regexp-steroids yaml-mode))
+(packages-conditional-install '(eno goto-chg multiple-cursors avy undo-tree string-edit highlight-symbol visual-regexp-steroids))
 
 (key-chord-define-global "kw" 'kill-word)
 (key-chord-define-global "bw" 'backward-kill-word)

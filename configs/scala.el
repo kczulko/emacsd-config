@@ -1,5 +1,3 @@
-(packages-conditional-install '(use-package yasnippet))
-
 (require 'use-package)
 
 ;; Enable defer and ensure by default for use-package
@@ -39,14 +37,6 @@
 
 ;; Add company-lsp backend for metals
 (use-package company-lsp)
-
-(require 'yasnippet)
-
-(setq yas-snippet-dirs
-     '("~/.emacs.d/snippets"
-       "~/.emacs.d/my_snippets"
-	))
-(yas-reload-all)
 
 ;; lsp-mode -> what works:
 ;; lsp-format-buffer -> starts scalafmt
