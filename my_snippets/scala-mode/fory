@@ -1,3 +1,6 @@
+# name: for-comprehension
+# key: fory
+# --
 for {
   _ <-  $0
 } yield ()

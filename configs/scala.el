@@ -43,3 +43,4 @@
 ;; lsp-find-definition -> M-.
 ;; lsp-find-references -> works and it would be great to connect this with helm
 (global-set-key (kbd "M-n") 'lsp-find-references)
+(global-set-key (kbd "C-c C-a") 'lsp-execute-code-action)
