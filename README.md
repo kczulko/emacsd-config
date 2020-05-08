@@ -17,3 +17,4 @@ $ ln -sf $EMACS_CFG_PROJECT_ROOT/configs ~/.emacs.d/configs
 $ ln -sf $EMACS_CFG_PROJECT_ROOT/my-snippets ~/.emacs.d/my_snippets/
 ```
 
+This setup is automated at [https://github.com/kczulko/scala-dev-env](https://github.com/kczulko/scala-dev-env)
