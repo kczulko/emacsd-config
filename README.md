@@ -5,11 +5,9 @@ emacs.d config based on rabbitonweb emacs config.
 ## Steps before
 
 1. Install:
-- `silver-searcher`
-- `multimarkdown`
-
-1. Create symbolic links:
-
+  - `silver-searcher`
+  - `multimarkdown`
+2. Create symbolic links:
 ```bash
 $ mkdir -p ~/.emacs.d
 $ ln -sf $EMACS_CFG_PROJECT_ROOT/init.el ~/.emacs.d/init.el
