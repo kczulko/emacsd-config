@@ -27,7 +27,6 @@
                 "ui"
                 "editing"
                 "dockerfile"
-                "bazel"
                 "markdown"
                 "nix"
                 "windows"
@@ -36,6 +35,8 @@
                 "yaml"
                 "yasnippet"
                 "haskell"
+                "go"
+                "bazel"
                 )
       )
 
