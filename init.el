@@ -35,7 +35,7 @@
                 "yasnippet"
                 "haskell"
                 "go"
-                "bazel"
+                "bazel-install"
                 )
       )
 
