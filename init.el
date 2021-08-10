@@ -29,7 +29,7 @@
                 "dockerfile"
                 "markdown"
                 "nix"
-                ;; "scala"
+                "scala"
                 "yaml"
                 "yasnippet"
                 "haskell"
