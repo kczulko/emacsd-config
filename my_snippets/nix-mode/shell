@@ -1,0 +1,10 @@
+# name : shell-nix
+# key : shell
+# --
+{ pkgs ? import <nixpkgs> {}}:
+
+let
+  $1 = $2;
+in pkgs.mkShell {
+  buildInputs = [ $0 ];
+}
