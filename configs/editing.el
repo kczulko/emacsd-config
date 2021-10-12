@@ -40,6 +40,12 @@
 
 (global-set-key (kbd "C-c g") 'goto-line)
 
+;; enable flyspell to spell checking
+;; to disable it for some specific modes
+;; repeat the same but assign -1 to those modes
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
+
 (defun uncomment-block ()
   "uncomments the /* block */"
   (interactive)
