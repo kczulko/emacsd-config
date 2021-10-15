@@ -19,7 +19,7 @@
 ;; bug workaround!
 (require 'subr-x)
 
-;;read custom configuration, order matter!
+;;read custom configuration, order matters!
 (setq configs '(
                 "install"
                 "ui"
@@ -41,6 +41,9 @@
 (dolist (config configs)
   (load (format "%s/%s" "~/.emacs.d/configs" config))
   )
+
+;; enable envrc - intentionally done after all the startup sequence
+(envrc-global-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
