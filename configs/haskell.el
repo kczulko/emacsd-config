@@ -1,4 +1,4 @@
-(packages-conditional-install '(haskell-mode lsp-mode lsp-haskell) )
+(packages-conditional-install '(haskell-mode lsp-mode lsp-haskell helm-lsp) )
 
 
 (require 'lsp)
@@ -9,6 +9,13 @@
 
 ;; hoogle search key binding
 (global-set-key (kbd "C-h C-o") 'haskell-hoogle)
+
+;; lsp-execute-code-action
+(global-set-key (kbd "C-c C-a") 'helm-lsp-code-actions)
+
+;; bind avy lens and enable lens mode
+(key-chord-define-global "zl" 'lsp-avy-lens)
+(setq lsp-lens-enable t)
 
 ;; function for generating mouse event
 ;; created for clicking into Source or Documentation links
