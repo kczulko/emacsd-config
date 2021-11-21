@@ -15,8 +15,6 @@
 (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
 
 
-
-
 ;; Optional - provides fancier overlays.
 (use-package lsp-ui
   :ensure t
