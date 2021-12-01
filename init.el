@@ -29,6 +29,7 @@
                 "dockerfile"
                 "markdown"
                 "nix"
+                "mu4e"
                 "scala"
                 "yaml"
                 "yasnippet"
