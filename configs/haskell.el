@@ -17,6 +17,10 @@
 (key-chord-define-global "zl" 'lsp-avy-lens)
 (setq lsp-lens-enable t)
 
+(lsp-register-custom-settings
+ '(("haskell.plugin.ghcide-completions.config.autoExtendOn" nil))
+ )
+
 ;; function for generating mouse event
 ;; created for clicking into Source or Documentation links
 (defun make-mouse-event-at-point (base-event)
