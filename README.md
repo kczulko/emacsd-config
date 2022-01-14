@@ -18,3 +18,7 @@ $ ln -sf $EMACS_CFG_PROJECT_ROOT/my_snippets ~/.emacs.d/my_snippets/
 or run `setup.sh` script.
 
 See also [https://github.com/kczulko/scala-dev-env](https://github.com/kczulko/scala-dev-env)
+
+## Collaborative editing
+
+Check [this](https://code.librehq.com/qhong/crdt.el) out!
