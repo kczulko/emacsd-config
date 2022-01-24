@@ -1,0 +1,7 @@
+# name: being-end
+# key: bend
+# --
+\begin{${1:what}}
+  \item $0
+  \item 
+\end{$1}
