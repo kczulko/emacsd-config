@@ -43,6 +43,18 @@
   (load (format "%s/%s" "~/.emacs.d/configs" config))
   )
 
+(use-package daml-mode
+  :load-path "~/.emacs.d/configs/daml"
+  :mode "\\.daml\'"
+  :bind (:map daml-mode-map
+         ("M-n" . flymake-goto-next-error)
+         ("M-p" . flymake-goto-next-error)
+         ("<tab>" . haskell-indent-cycle))
+  :config
+  (require 'lsp-daml)
+  ;; (setq lsp-daml-extra-arguments '("--scenarios" "no" "--telemetry" "--ghc-option" "-XMonoLocalBinds" "--ghc-option" "-W" "--ghc-option" "-Wno-unused-binds" "--ghc-option" "-Wno-unused-matches" "--RTS" "--jobs" "16" "+RTS" "-N16" "-H10G" "-M12G" "-A20M" "-RTS"))
+  )
+
 ;; enable envrc - intentionally done after all the startup sequence
 (envrc-global-mode)
 
