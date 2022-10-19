@@ -1,5 +1,6 @@
 (packages-conditional-install '(smartparens projectile recentf ag helm-ag helm helm-projectile magit))
 (require 'helm-mode)
+(require 'helm-core)
 (require 'recentf)
 (require 'projectile)
 (require 'helm-projectile)
