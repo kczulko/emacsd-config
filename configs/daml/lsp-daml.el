@@ -28,7 +28,7 @@
 
 ;;;###autoload
 (lsp-register-client
- (make-lsp-client :new-connection (lsp-stdio-connection (append '("daml" "ide") lsp-daml-extra-arguments))
+ (make-lsp-client :new-connection (lsp-stdio-connection (append '("/home/kczulko/.daml/bin/daml" "ide") lsp-daml-extra-arguments))
                   :major-modes '(daml-mode)
                   :priority -1
                   :multi-root nil

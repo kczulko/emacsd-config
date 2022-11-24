@@ -19,6 +19,7 @@
 ;; bug workaround!
 (require 'subr-x)
 
+(defvar symbolp)
 ;;read custom configuration, order matters!
 (setq configs '(
                 "install"
