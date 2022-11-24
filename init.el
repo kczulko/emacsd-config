@@ -3,10 +3,12 @@
 ;; bug workaround!
 ;; (setq package-check-signature nil)
 
-(add-to-list 'package-archives '("melpa-org" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
-(package-initialize)
+;;(add-to-list 'package-archives '("melpa-org" . "https://melpa.org/packages/") t)
+;;(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+;;(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+;; (package-initialize)
+
+(setq package-archives nil)
 
 (setq package-check-signature nil)
 
@@ -64,8 +66,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(nix-mode magit monokai-theme neotree key-chord hydra auto-package-update))
+ '(package-selected-packages '(nix-mode magit monokai-theme key-chord hydra))
  '(sbt:prefer-nested-projects t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

@@ -1,3 +1,4 @@
+;; recentf can be removed from here, it's a part of gnu emacs now
 (packages-conditional-install '(smartparens projectile recentf ag helm-ag helm helm-projectile magit))
 (require 'helm-mode)
 (require 'helm-core)

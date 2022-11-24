@@ -1,4 +1,4 @@
-(packages-conditional-install '(neotree monokai-theme))
+(packages-conditional-install '(monokai-theme))
 
 (require 'monokai-theme)
 (load-theme 'monokai t)
@@ -20,5 +20,5 @@
 ;;(global-set-key (kbd "C-=") 'zoom-frm-in)
 ;;(global-set-key (kbd "C--") 'zoom-frm-out)
 
-(global-set-key (kbd "M-o M-t t") 'neotree-toggle)
-(global-set-key (kbd "M-o M-t f") 'neotree-find)
+;;(global-set-key (kbd "M-o M-t t") 'neotree-toggle)
+;;(global-set-key (kbd "M-o M-t f") 'neotree-find)

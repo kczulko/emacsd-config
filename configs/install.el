@@ -1,4 +1,10 @@
 ;; util functions to instal packages if they don't exists
+
+;; (add-to-list 'package-archives '("melpa-org" . "https://melpa.org/packages/") t)
+;; (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+;; (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+;; (package-initialize)
+
 (defun package-conditional-install (package-name)
   "Install a package if it is not present"
   (unless (package-installed-p package-name)
@@ -10,10 +16,15 @@
     (package-conditional-install (car packages))
     (packages-conditional-install (cdr packages))))
 
-(packages-conditional-install '(key-chord hydra auto-package-update envrc))
+(packages-conditional-install '(
+                                key-chord
+                                hydra
+                                envrc
+
+                                ))
 
 ;; updated all packages on startup
-(auto-package-update-maybe)
+;;(auto-package-update-maybe)
 
 ;; auto-refresh all buffers when files have changed on disk
 (global-auto-revert-mode t)
@@ -30,3 +41,28 @@
       kept-old-versions      5) ; and how many of the old
 
 (require 'hydra)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
