@@ -1,6 +1,3 @@
-(packages-conditional-install '(haskell-mode lsp-mode lsp-haskell helm-lsp) )
-
-
 (require 'lsp)
 (require 'lsp-haskell)
 ;; Hooks so haskell and literate haskell major modes trigger LSP setup

@@ -1,6 +1,3 @@
-(packages-conditional-install '(ace-window))
-
-(global-set-key (kbd "C-c \\") 'ace-window)
 (key-chord-define-global "gh" 'ace-window)
 
 ;; use letters as windows identifiers

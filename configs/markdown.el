@@ -1,5 +1,4 @@
 ;; markdown mode
-(packages-conditional-install '(use-package markdown-mode))
 
 (require 'use-package)
 (use-package markdown-mode

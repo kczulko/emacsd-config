@@ -1,7 +1,5 @@
 (require 'use-package)
 
-(packages-conditional-install '(go-mode))
-
 (use-package lsp-mode
   :ensure t
   :commands (lsp lsp-deferred)

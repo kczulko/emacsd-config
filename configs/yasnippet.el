@@ -1,4 +1,3 @@
-(packages-conditional-install '(use-package yasnippet))
 
 (require 'yasnippet)
 (setq yas-snippet-dirs

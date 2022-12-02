@@ -1,11 +1,10 @@
-(packages-conditional-install '(monokai-theme))
-
 (require 'monokai-theme)
 (load-theme 'monokai t)
 
 (tool-bar-mode 0) 
 (menu-bar-mode 0)
-(toggle-frame-fullscreen) 
+;; with i3 it's not fully required now...
+;; (toggle-frame-fullscreen)
 (scroll-bar-mode 0)
 
 (fset `yes-or-no-p `y-or-n-p)

@@ -1,16 +1,8 @@
 (require 'package)
 
-;; bug workaround!
-;; (setq package-check-signature nil)
-
-;;(add-to-list 'package-archives '("melpa-org" . "https://melpa.org/packages/") t)
-;;(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
-;;(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
-;; (package-initialize)
-
 (setq package-archives nil)
 
-(setq package-check-signature nil)
+;;(setq package-check-signature nil)
 
 ;;(when (not package-archive-contents)
 ;;  (package-refresh-contents))
@@ -18,13 +10,10 @@
 ;; save when loosing focus
 ;; (add-hook 'focus-out-hook 'save-some-buffers)
 
-;; bug workaround!
-(require 'subr-x)
-
-(defvar symbolp)
 ;;read custom configuration, order matters!
 (setq configs '(
-                "install"
+                ;;"install" ;; uncomment when not using nix!
+                "initial"
                 "ui"
                 "editing"
                 "windows"
@@ -46,17 +35,19 @@
   (load (format "%s/%s" "~/.emacs.d/configs" config))
   )
 
-(use-package daml-mode
-  :load-path "~/.emacs.d/configs/daml"
-  :mode "\\.daml\'"
-  :bind (:map daml-mode-map
-         ("M-n" . flymake-goto-next-error)
-         ("M-p" . flymake-goto-next-error)
-         ("<tab>" . haskell-indent-cycle))
-  :config
-  (require 'lsp-daml)
-  ;; (setq lsp-daml-extra-arguments '("--scenarios" "no" "--telemetry" "--ghc-option" "-XMonoLocalBinds" "--ghc-option" "-W" "--ghc-option" "-Wno-unused-binds" "--ghc-option" "-Wno-unused-matches" "--RTS" "--jobs" "16" "+RTS" "-N16" "-H10G" "-M12G" "-A20M" "-RTS"))
-  )
+(require 'daml-mode)
+(require 'daml-lsp)
+
+;;(use-package daml-mode
+;;  :load-path "~/.emacs.d/configs/daml"
+;;  :mode "\\.daml\'"
+;;  :bind (:map daml-mode-map
+;;         ("M-n" . flymake-goto-next-error)
+;;         ("M-p" . flymake-goto-next-error)
+;;         ("<tab>" . haskell-indent-cycle))
+;;  :config
+;;  (require 'lsp-daml)
+;;  )
 
 ;; enable envrc - intentionally done after all the startup sequence
 (envrc-global-mode)
