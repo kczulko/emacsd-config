@@ -1,0 +1,33 @@
+# name : flake-nix
+# key : flake
+# --
+{
+  description = "$1";
+
+  inputs = {
+    flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs.url = "github:nixos/nixpkgs";
+  };
+
+  outputs = { self, nixpkgs, flake-utils}:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pname = "$2";
+
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+      in {
+        packages.\${pname} = pkgs.mkDerivation {
+          # your derivation goes here
+        };
+
+        defaultPackage = self.packages.\${system}.\${pname};
+
+        devShell = with pkgs; mkShell {
+          buildInputs = [];
+        };
+      }
+    ); 
+}
