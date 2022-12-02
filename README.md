@@ -1,6 +1,6 @@
 # emacsd-config
 
-emacs.d config based on rabbitonweb emacs config.
+emacs.d config based on rabbitonweb emacs config. Now it is complementary with [my nixos setup](https://github.com/kczulko/nixos-config).
 
 ## Steps before
 
