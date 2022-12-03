@@ -10,6 +10,7 @@
 (key-chord-define-global "wj" 'eno-word-goto)
 
 (key-chord-define-global "cj" 'avy-goto-subword-1)
+(key-chord-define-global "hj" 'avy-goto-char)
 (global-set-key (kbd "C-c j") 'avy-goto-subword-1)
 
 ;; highlight
