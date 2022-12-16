@@ -18,16 +18,11 @@
                 "editing"
                 "windows"
                 "project"
-                "dockerfile"
-                "markdown"
-                "nix"
-                "scala"
-                "others"
                 "todo"
                 "yasnippet"
                 "haskell"
                 "go"
-                "bazel-install"
+                "packages"
                 )
       )
 
@@ -35,8 +30,8 @@
   (load (format "%s/%s" "~/.emacs.d/configs" config))
   )
 
-(require 'daml-mode)
-(require 'daml-lsp)
+;; (require 'daml-mode)
+;; (require 'daml-lsp)
 
 ;;(use-package daml-mode
 ;;  :load-path "~/.emacs.d/configs/daml"
@@ -57,7 +52,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(nix-mode magit monokai-theme key-chord hydra))
+ '(package-selected-packages
+   '(bazela daml-lsp daml-mode nix-mode magit monokai-theme key-chord hydra))
  '(sbt:prefer-nested-projects t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

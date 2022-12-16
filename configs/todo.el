@@ -3,7 +3,6 @@
 
 
 ;; (setq todo-filepath "/home/kczulko/Projects/emacsd-config/todo.org")
-
 (setq agenda-files (list
                         "~/org/agenda/work.org"
                         "~/org/agenda/home.org"

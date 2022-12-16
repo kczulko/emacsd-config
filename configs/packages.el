@@ -1,18 +1,60 @@
+;;; loads all the packages
+
 (require 'use-package)
 
-;; Enable defer and ensure by default for use-package
-;; Keep auto-save/backup files separate from source code:  https://github.com/scalameta/metals/issues/1027
-(setq use-package-always-defer t
-      use-package-always-ensure t
-      backup-directory-alist `((".*" . ,temporary-file-directory))
-      auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+;; yasnippet
+;; markdown
+;; scala
+;; haskell
+;; go
 
-;; Enable scala-mode for highlighting, indentation and motion commands
+(use-package use-package-chords
+  :ensure t
+  :config (key-chord-mode 1))
+
+
+(use-package nix-mode
+  :mode "\\.nix\\'"
+  )
+
+
+(use-package daml-lsp
+  :load-path load-path ;; yes... that's strange
+  )
+
+
+(use-package daml-mode
+  :load-path load-path ;; yes... that's strange
+  :mode "\\.daml"
+  :bind (:map daml-mode-map
+         ("M-n" . flymake-goto-next-error)
+         ("M-p" . flymake-goto-next-error)
+         ("<tab>" . haskell-indent-cycle))
+  ;; :requires daml-lsp
+  :after (daml-lsp)
+  )
+
+
+(use-package bazel
+  :mode
+  ("BUILD$" . bazel-mode)
+  ("WORKSPACE$" . bazel-mode)
+  ("\\.bazel$" . bazel-mode)
+  ("\\.bzl$" . bazel-mode)
+  )
+
+
+(use-package dockerfile-mode
+  :mode
+  ("Dockerfile\\'" . dockerfile-mode)
+  )
+
+
 (use-package scala-mode
   :interpreter
     ("scala" . scala-mode))
 
-;; Enable sbt mode for executing sbt commands
+
 (use-package sbt-mode
   :commands sbt-start sbt-command
   :config
@@ -26,14 +68,16 @@
    (setq sbt:program-options '("-Dsbt.supershell=false"))
 )
 
-;; Enable nice rendering of diagnostics like compile errors.
+
 (use-package flycheck
   :init (global-flycheck-mode))
 
+
 (use-package lsp-mode
   ;; Optional - enable lsp-mode automatically in scala files
-  :hook  (scala-mode . lsp)
-         (lsp-mode . lsp-lens-mode)
+  :hook
+  (scala-mode . lsp)
+  (lsp-mode . lsp-lens-mode)
   :config
   ;; Uncomment following section if you would like to tune lsp-mode performance according to
   ;; https://emacs-lsp.github.io/lsp-mode/page/performance/
@@ -44,8 +88,10 @@
   ;;       (setq lsp-completion-provider :capf)
   (setq lsp-prefer-flymake nil))
 
+
 ;; Add metals backend for lsp-mode
 (use-package lsp-metals)
+
 
 ;; Enable nice rendering of documentation on hover
 ;;   Warning: on some systems this package can reduce your emacs responsiveness significally.
@@ -54,10 +100,12 @@
 ;;   lsp-mode can activate it automatically.
 (use-package lsp-ui)
 
+
 ;; lsp-mode supports snippets, but in order for them to work you need to use yasnippet
 ;; If you don't want to use snippets set lsp-enable-snippet to nil in your lsp-mode settings
 ;;   to avoid odd behavior with snippets and indentation
 (use-package yasnippet)
+
 
 ;; Use company-capf as a completion provider.
 ;;
@@ -78,3 +126,35 @@
   (lsp-mode . dap-mode)
   (lsp-mode . dap-ui-mode)
   )
+
+
+
+;; (use-package)
+
+(use-package eno
+  :chords
+  (("wj" . eno-word-goto))
+  )
+
+
+(use-package yaml-mode
+  :mode
+  ("\\.yml\\'" . yaml-mode)
+  ("\\.yaml\\'" . yaml-mode)
+  :bind (:map yaml-mode-map
+              ("C-m" . 'newline-and-indent))
+  )
+
+
+;; (use-package docker
+;;   :ensure t
+;;   :bind ("C-c d" . docker))
+
+
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))

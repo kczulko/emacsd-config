@@ -1,4 +1,3 @@
-(require 'eno)
 (require 'hydra)
 
 (key-chord-define-global "kw" 'kill-word)
@@ -6,8 +5,6 @@
 (key-chord-define-global "mw" 'mark-word)
 (key-chord-define-global "ms" 'mark-sexp)
 
-
-(key-chord-define-global "wj" 'eno-word-goto)
 
 (key-chord-define-global "cj" 'avy-goto-subword-1)
 (key-chord-define-global "hj" 'avy-goto-char)
