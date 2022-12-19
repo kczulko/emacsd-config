@@ -3,10 +3,7 @@
 (require 'use-package)
 
 ;; yasnippet
-;; markdown
-;; scala
 ;; haskell
-;; go
 
 (use-package use-package-chords
   :config (key-chord-mode 1))
@@ -50,9 +47,14 @@
 
 
 (use-package scala-mode
-  ;; :after (lsp)
   :interpreter
   ("scala" . scala-mode)
+  :hook
+  ((scala-mode . lsp)
+   ;; TODO: move to common function/value
+   (scala-mode . (lambda ()
+                   (add-hook 'before-save-hook #'lsp-format-buffer t t)
+                   (add-hook 'before-save-hook #'lsp-organize-imports t t))))
   )
 
 
@@ -75,10 +77,12 @@
 
 
 (use-package lsp-mode
+  :commands (lsp lsp-deferred)
   ;; Optional - enable lsp-mode automatically in scala files
   :hook
-  (scala-mode . lsp)
+  ;; (scala-mode . lsp)
   (lsp-mode . lsp-lens-mode)
+  ;; (go-mode . lsp-deferred)
   ;; (haskell-mode . lsp)
   ;; (haskell-literate-mode . lsp)
   :chords
@@ -106,7 +110,8 @@
 ;;   (See: https://emacs-lsp.github.io/lsp-mode/page/performance/)
 ;;   In that case you have to not only disable this but also remove from the packages since
 ;;   lsp-mode can activate it automatically.
-(use-package lsp-ui)
+(use-package lsp-ui
+  :commands lsp-ui-mode)
 
 
 ;; lsp-mode supports snippets, but in order for them to work you need to use yasnippet
@@ -215,4 +220,98 @@
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   )
+
+(use-package go-mode
+  :hook
+  (go-mode . lsp)
+  (go-mode . (lambda ()
+               (add-hook 'before-save-hook #'lsp-format-buffer t t)
+               (add-hook 'before-save-hook #'lsp-organize-imports t t)))
+  ;; TODO: this is a function that adds save/import hooks
+  ;; move it to global functions and reuse here for e.g. scala
+  ;; (defun lsp-go-install-save-hooks ()
+    ;; (add-hook 'before-save-hook #'lsp-format-buffer t t)
+    ;; (add-hook 'before-save-hook #'lsp-organize-imports t t))
+  ;; (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
+  )
+
+(use-package helm-projectile
+  :chords
+  (("cm" . helm-projectile-switch-project)
+   ("pf" . helm-projectile-find-file))
+  )
+
+(use-package helm-ag
+  :chords
+  (("qw" . helm-do-ag-this-file)
+   ("gm" . helm-do-ag-project-root))
+  )
+
+(use-package helm
+  ;; :preface (require 'helm-config)
+  :demand
+  :chords
+  (("fm" . helm-mini)
+   ("ui" . helm-imenu)
+   ("hb" . helm-bookmarks))
+  :bind
+  (("M-x" . helm-M-x)
+  ("C-x C-m" . helm-M-x)
+  ("C-c C-m" . helm-M-x)
+  ("C-x C-b" . helm-buffers-list)
+  ("C-x b" . helm-mini)
+  ("C-x C-f" . helm-find-files))
+  :init
+  (setq helm-always-two-windows nil
+    helm-display-buffer-default-height 23
+    helm-default-display-buffer-functions '(display-buffer-in-side-window))
+  )
+
+(use-package recentf
+  :init
+  (recentf-mode 1)
+  (setq
+   recentf-max-saved-items 200
+   recentf-max-menu-items 15)
+  )
+
+(use-package projectile
+  :config
+  (projectile-global-mode 1)
+  )
+
+(use-package smartparens
+  :config
+  (smartparens-global-mode 1)
+  )
+
+(use-package magit
+  :bind
+  (("C-c S" . magit-status))
+  :config
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+  )
+
+(use-package monokai-theme
+  :config
+  (load-theme 'monokai t)
+  )
+;; use-package
 ;; for multiple cursors: https://www.google.com/search?client=firefox-b-d&q=emacs+multiple+cursors+edit+lines#kpvalbx=_KgGdY43vE66wrgTUqY-oCQ_25
+
+
+;; (require 'yasnippet)
+;; (setq yas-snippet-dirs
+;;      '("~/.emacs.d/snippets"
+;;        "~/.emacs.d/my_snippets"
+;;        ))
+
+(use-package yasnippet
+  :config
+  (setq yas-snippet-dirs
+     '("~/.emacs.d/snippets"
+       "~/.emacs.d/my_snippets"
+       ))
+  (yas-global-mode 1)
+  (yas-reload-all)
+  )

@@ -14,14 +14,10 @@
 (setq configs '(
                 ;;"install" ;; uncomment when not using nix!
                 "initial"
-                "ui"
                 "editing"
-                "windows"
                 "project"
                 "todo"
-                "yasnippet"
                 "haskell"
-                "go"
                 "packages"
                 )
       )
@@ -30,19 +26,6 @@
   (load (format "%s/%s" "~/.emacs.d/configs" config))
   )
 
-;; (require 'daml-mode)
-;; (require 'daml-lsp)
-
-;;(use-package daml-mode
-;;  :load-path "~/.emacs.d/configs/daml"
-;;  :mode "\\.daml\'"
-;;  :bind (:map daml-mode-map
-;;         ("M-n" . flymake-goto-next-error)
-;;         ("M-p" . flymake-goto-next-error)
-;;         ("<tab>" . haskell-indent-cycle))
-;;  :config
-;;  (require 'lsp-daml)
-;;  )
 
 ;; enable envrc - intentionally done after all the startup sequence
 (envrc-global-mode)

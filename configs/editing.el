@@ -1,13 +1,15 @@
 (require 'hydra)
 
-(key-chord-define-global "kw" 'kill-word)
-(key-chord-define-global "bw" 'backward-kill-word)
-(key-chord-define-global "mw" 'mark-word)
-(key-chord-define-global "ms" 'mark-sexp)
-
 
 ;; highlight
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
+
+(setq inhibit-startup-screen t)
+
+(defun i3lock ()
+  "Locks i3 screen"
+   (interactive)
+   (shell-command "i3lock-pixeled"))
 
 ;; buffer local variables
 (setq-default
@@ -32,8 +34,6 @@
     "zoom"
     ("g" text-scale-increase "in")
     ("l" text-scale-decrease "out"))
-
-(global-set-key (kbd "C-c g") 'goto-line)
 
 ;; enable flyspell to spell checking
 ;; to disable it for some specific modes
@@ -66,26 +66,35 @@
 (global-set-key [(control return)] 'goto-next-line-with-ident)
 
 
-
 (defun double-line (arg)
   "copy line and place it below the original"
   (interactive "p")
   (copy-line arg)
   (yank)
   (move-end-of-line))
-(global-set-key (kbd "C-c d") 'double-line)
 
+
+(key-chord-define-global "kw" 'kill-word)
+(key-chord-define-global "bw" 'backward-kill-word)
+(key-chord-define-global "mw" 'mark-word)
+(key-chord-define-global "ms" 'mark-sexp)
+(global-set-key (kbd "C-c g") 'goto-line)
+(global-set-key (kbd "C-c d") 'double-line)
 (global-set-key [(control .)] 'goto-last-change)
 (global-set-key (kbd "C-s-c C-s-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-
-
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
+(global-set-key (kbd "M-]") 'next-buffer)
+(global-set-key (kbd "M-[") 'previous-buffer)
+(global-set-key (kbd "M-L") 'i3lock)
+(global-set-key (kbd "M-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "M-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "M-<down>") 'shrink-window)
+(global-set-key (kbd "M-<up>") 'enlarge-window)
 ;;(global-undo-tree-mode 1)
 
 ;; magit - ediff working without additional frames
-(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 
