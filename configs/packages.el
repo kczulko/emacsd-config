@@ -51,8 +51,10 @@
 
 
 (use-package scala-mode
+  ;; :after (lsp)
   :interpreter
-    ("scala" . scala-mode))
+  ("scala" . scala-mode)
+  )
 
 
 (use-package sbt-mode
@@ -74,10 +76,15 @@
 
 
 (use-package lsp-mode
+  ;; :ensure t
   ;; Optional - enable lsp-mode automatically in scala files
   :hook
   (scala-mode . lsp)
   (lsp-mode . lsp-lens-mode)
+  ;; (haskell-mode . lsp)
+  ;; (haskell-literate-mode . lsp)
+  :chords
+  ("zl" . 'lsp-avy-lens)
   :config
   ;; Uncomment following section if you would like to tune lsp-mode performance according to
   ;; https://emacs-lsp.github.io/lsp-mode/page/performance/
@@ -86,7 +93,10 @@
   ;;       (setq lsp-idle-delay 0.500)
   ;;       (setq lsp-log-io nil)
   ;;       (setq lsp-completion-provider :capf)
-  (setq lsp-prefer-flymake nil))
+  (setq
+   lsp-prefer-flymake nil
+   lsp-lens-enable t)
+  )
 
 
 ;; Add metals backend for lsp-mode
@@ -137,6 +147,11 @@
   )
 
 
+(use-package avy
+  :chords
+  (("cj" . avy-goto-subword-1))
+  (("hj" . avy-goto-char)))
+
 (use-package yaml-mode
   :mode
   ("\\.yml\\'" . yaml-mode)
@@ -158,3 +173,50 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
+
+(use-package helm-lsp
+  :bind
+  ("C-c C-a" . helm-lsp-code-actions)
+  )
+
+(use-package lsp-mode
+  :chords
+  ("zl" . lsp-avy-lens)
+  :init
+  (setq lsp-lens-enable t)
+  )
+
+(use-package lsp-haskell
+  ;; :after (lsp)
+  :hook
+  ((haskell-mode . lsp)
+  (haskell-literate-mode . lsp))
+  :bind
+  ("C-h C-o" . haskell-hoogle)
+  :config
+  (lsp-register-custom-settings
+   '(("haskell.plugin.ghcide-completions.config.autoExtendOn" nil))
+   )
+  )
+
+
+(use-package visual-regexp-steroids
+  :bind
+  ("C-c r" . vr/replace)
+  ("C-c q" . vr/query-replace)
+  ("C-c m" . vr/mc-mark)
+  (:map esc-map
+        ("C-r" . vr/isearch-backward)
+        ("C-s" . vr/isearch-forward))
+  )
+
+
+(use-package ace-window
+  :chords
+  (("gh" . ace-window)
+   ("sw" . ace-swap-window)
+   )
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  )
+;; for multiple cursors: https://www.google.com/search?client=firefox-b-d&q=emacs+multiple+cursors+edit+lines#kpvalbx=_KgGdY43vE66wrgTUqY-oCQ_25

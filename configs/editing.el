@@ -6,10 +6,6 @@
 (key-chord-define-global "ms" 'mark-sexp)
 
 
-(key-chord-define-global "cj" 'avy-goto-subword-1)
-(key-chord-define-global "hj" 'avy-goto-char)
-(global-set-key (kbd "C-c j") 'avy-goto-subword-1)
-
 ;; highlight
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
 
@@ -61,6 +57,7 @@
     (beginning-of-line (or (and arg (1+ arg)) 2))
     (if (and arg (not (= 1 arg))) (message "%d lines copied" arg)))
 
+
 (defun goto-next-line-with-ident ()
   (interactive)
   (end-of-line)
@@ -91,13 +88,4 @@
 ;; magit - ediff working without additional frames
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-;; regexps
-(require 'visual-regexp-steroids)
-(define-key global-map (kbd "C-c r") 'vr/replace)
-(define-key global-map (kbd "C-c q") 'vr/query-replace)
-;; if you use multiple-cursors, this is for you:
-(define-key global-map (kbd "C-c m") 'vr/mc-mark)
-;; to use visual-regexp-steroids's isearch instead of the built-in regexp isearch, also include the following lines:
-(define-key esc-map (kbd "C-r") 'vr/isearch-backward) ;; C-M-r
-(define-key esc-map (kbd "C-s") 'vr/isearch-forward) ;; C-M-s
 
