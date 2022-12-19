@@ -9,7 +9,6 @@
 ;; go
 
 (use-package use-package-chords
-  :ensure t
   :config (key-chord-mode 1))
 
 
@@ -76,7 +75,6 @@
 
 
 (use-package lsp-mode
-  ;; :ensure t
   ;; Optional - enable lsp-mode automatically in scala files
   :hook
   (scala-mode . lsp)
@@ -162,12 +160,10 @@
 
 
 ;; (use-package docker
-;;   :ensure t
 ;;   :bind ("C-c d" . docker))
 
 
 (use-package markdown-mode
-  :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
