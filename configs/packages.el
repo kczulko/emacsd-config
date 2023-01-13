@@ -113,15 +113,11 @@
 (use-package lsp-ui
   :commands lsp-ui-mode)
 
-
 ;; lsp-mode supports snippets, but in order for them to work you need to use yasnippet
 ;; If you don't want to use snippets set lsp-enable-snippet to nil in your lsp-mode settings
 ;;   to avoid odd behavior with snippets and indentation
 (use-package yasnippet)
 
-
-;; Use company-capf as a completion provider.
-;;
 ;; To Company-lsp users:
 ;;   Company-lsp is no longer maintained and has been removed from MELPA.
 ;;   Please migrate to company-capf.
@@ -131,18 +127,13 @@
   (setq lsp-completion-provider :capf))
 
 ;; Use the Debug Adapter Protocol for running tests and debugging
-(use-package posframe
-  ;; Posframe is a pop-up tool that must be manually installed for dap-mode
-  )
+;; Posframe is a pop-up tool that must be manually installed for dap-mode
+(use-package posframe)
 (use-package dap-mode
   :hook
   (lsp-mode . dap-mode)
   (lsp-mode . dap-ui-mode)
   )
-
-
-
-;; (use-package)
 
 (use-package eno
   :chords
@@ -162,11 +153,6 @@
   :bind (:map yaml-mode-map
               ("C-m" . 'newline-and-indent))
   )
-
-
-;; (use-package docker
-;;   :bind ("C-c d" . docker))
-
 
 (use-package markdown-mode
   :commands (markdown-mode gfm-mode)
@@ -296,22 +282,35 @@
   :config
   (load-theme 'monokai t)
   )
-;; use-package
-;; for multiple cursors: https://www.google.com/search?client=firefox-b-d&q=emacs+multiple+cursors+edit+lines#kpvalbx=_KgGdY43vE66wrgTUqY-oCQ_25
 
-
-;; (require 'yasnippet)
-;; (setq yas-snippet-dirs
-;;      '("~/.emacs.d/snippets"
-;;        "~/.emacs.d/my_snippets"
-;;        ))
 
 (use-package yasnippet
   :config
   (setq yas-snippet-dirs
-     '("~/.emacs.d/snippets"
+     '(
        "~/.emacs.d/my_snippets"
        ))
   (yas-global-mode 1)
   (yas-reload-all)
   )
+
+
+;; for multiple cursors: https://www.google.com/search?client=firefox-b-d&q=emacs+multiple+cursors+edit+lines#kpvalbx=_KgGdY43vE66wrgTUqY-oCQ_25
+(use-package multiple-cursors
+  :bind
+  (("C-s-c C-s-c" . mc/edit-lines)
+  ("C->" . mc/mark-next-like-this)
+  ("C-<" . mc/mark-previous-like-this)
+  ("C-c C-<" . mc/mark-all-like-this))
+  )
+
+(use-package hydra
+  :config
+  (defhydra hydra-zoom (global-map "<f2>")
+    "zoom"
+    ("g" text-scale-increase "in")
+    ("l" text-scale-decrease "out"))
+  )
+
+(provide 'packages)
+;;; packages.el ends here

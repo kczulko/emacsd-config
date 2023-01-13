@@ -1,23 +1,4 @@
-;; (require 'lsp)
-;; (require 'lsp-haskell)
-;; Hooks so haskell and literate haskell major modes trigger LSP setup
-;; (add-hook 'haskell-mode-hook #'lsp)
-;; (add-hook 'haskell-literate-mode-hook #'lsp)
-
-;; hoogle search key binding
-;; (global-set-key (kbd "C-h C-o") 'haskell-hoogle)
-
-
-;; bind avy lens and enable lens mode
-;; (key-chord-define-global "zl" 'lsp-avy-lens)
-;; (setq lsp-lens-enable t)
-
-;; (lsp-register-custom-settings
- ;; '(("haskell.plugin.ghcide-completions.config.autoExtendOn" nil))
- ;; )
-
-;; function for generating mouse event
-;; created for clicking into Source or Documentation links
+;; TODO: this could be done with a keynav!
 (defun make-mouse-event-at-point (base-event)
   (let ((posn (posn-at-point))
         (prefix "")

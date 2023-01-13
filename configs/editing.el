@@ -1,4 +1,3 @@
-(require 'hydra)
 
 
 ;; highlight
@@ -29,11 +28,6 @@
           (message "Deleted file %s" filename)
           (kill-buffer))))))
 
-;; zoom
-(defhydra hydra-zoom (global-map "<f2>")
-    "zoom"
-    ("g" text-scale-increase "in")
-    ("l" text-scale-decrease "out"))
 
 ;; enable flyspell to spell checking
 ;; to disable it for some specific modes
@@ -81,10 +75,10 @@
 (global-set-key (kbd "C-c g") 'goto-line)
 (global-set-key (kbd "C-c d") 'double-line)
 (global-set-key [(control .)] 'goto-last-change)
-(global-set-key (kbd "C-s-c C-s-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+;; (global-set-key (kbd "C-s-c C-s-c") 'mc/edit-lines)
+;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+;; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 (global-set-key (kbd "M-]") 'next-buffer)
 (global-set-key (kbd "M-[") 'previous-buffer)
 (global-set-key (kbd "M-L") 'i3lock)
@@ -94,7 +88,5 @@
 (global-set-key (kbd "M-<up>") 'enlarge-window)
 ;;(global-undo-tree-mode 1)
 
-;; magit - ediff working without additional frames
-;; (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 
