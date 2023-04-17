@@ -9,8 +9,8 @@
       version-control        t  ; Use version numbers on backups
       delete-old-versions    t  ; Automatically delete excess backups:
       kept-new-versions      20 ; how many of the newest versions to keep
+      ring-bell-function 'ignore; no beeping
       kept-old-versions      5) ; and how many of the old
-
 
 (tool-bar-mode 0) 
 (menu-bar-mode 0)

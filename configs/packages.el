@@ -312,5 +312,12 @@
     ("l" text-scale-decrease "out"))
   )
 
+(use-package tramp)
+
+(use-package groovy-mode
+  :config (setq groovy-indent-offset 2))
+
+(use-package elm-mode)
+
 (provide 'packages)
 ;;; packages.el ends here
