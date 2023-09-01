@@ -37,6 +37,9 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    '(bazela daml-lsp daml-mode nix-mode magit monokai-theme key-chord hydra))
+ '(safe-local-variable-values
+   '((eval add-hook 'before-save-hook #'lsp-format-buffer nil nil)
+     (lsp-metals-scalafmt-config-path . "scalafmt.conf")))
  '(sbt:prefer-nested-projects t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

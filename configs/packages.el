@@ -87,6 +87,9 @@
   ;; (haskell-literate-mode . lsp)
   :chords
   ("zl" . 'lsp-avy-lens)
+  :bind (:map lsp-mode-map
+         ("C-c i" . lsp-find-implementation)
+         )
   :config
   ;; Uncomment following section if you would like to tune lsp-mode performance according to
   ;; https://emacs-lsp.github.io/lsp-mode/page/performance/
@@ -318,6 +321,12 @@
   :config (setq groovy-indent-offset 2))
 
 (use-package elm-mode)
+
+(use-package drag-stuff
+  :config
+  (drag-stuff-global-mode 1)
+  (drag-stuff-define-keys)
+  )
 
 (provide 'packages)
 ;;; packages.el ends here
