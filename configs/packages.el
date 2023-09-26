@@ -6,8 +6,17 @@
 ;; haskell
 
 (use-package use-package-chords
-  :config (key-chord-mode 1))
+  :config
+  (key-chord-mode 1)
+  :custom
+  ;; https://github.com/emacsorphanage/key-chord/issues/6
+  (key-chord-safety-interval-forward 0.1)
+  (key-chord-safety-interval-backward 0)
+  (key-chord-safety-interval-forward 0)
+)
 
+;; (use-package key-chords
+  ;; )
 
 (use-package nix-mode
   :mode "\\.nix\\'"
