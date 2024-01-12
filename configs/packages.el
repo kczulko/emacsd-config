@@ -341,7 +341,7 @@
   (global-undo-tree-mode)
   (setq
    undo-tree-visualizer-diff 1
-   undo-tree-auto-save-history 0)
+   undo-tree-auto-save-history nil)
   )
 
 (provide 'packages)
