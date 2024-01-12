@@ -22,13 +22,10 @@
   )
 
 
-(use-package daml-lsp
-  :load-path load-path ;; yes... that's strange
-  )
+(use-package daml-lsp)
 
 
 (use-package daml-mode
-  :load-path load-path ;; yes... that's strange
   :mode "\\.daml"
   :bind (:map daml-mode-map
          ("M-n" . flymake-goto-next-error)
