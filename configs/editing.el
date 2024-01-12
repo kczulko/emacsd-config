@@ -66,18 +66,9 @@
   (yank)
   (move-end-of-line))
 
-
-(key-chord-define-global "kw" 'kill-word)
-(key-chord-define-global "bw" 'backward-kill-word)
-(key-chord-define-global "mw" 'mark-word)
-(key-chord-define-global "ms" 'mark-sexp)
 (global-set-key (kbd "C-c g") 'goto-line)
 (global-set-key (kbd "C-c d") 'double-line)
 (global-set-key [(control .)] 'goto-last-change)
-;; (global-set-key (kbd "C-s-c C-s-c") 'mc/edit-lines)
-;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
-;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-;; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 (global-set-key (kbd "M-]") 'next-buffer)
 (global-set-key (kbd "M-[") 'previous-buffer)
 (global-set-key (kbd "M-L") 'i3lock)
@@ -85,7 +76,4 @@
 (global-set-key (kbd "M-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "M-<down>") 'shrink-window)
 (global-set-key (kbd "M-<up>") 'enlarge-window)
-;;(global-undo-tree-mode 1)
-
-
 

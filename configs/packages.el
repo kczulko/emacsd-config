@@ -2,12 +2,13 @@
 
 (require 'use-package)
 
-;; yasnippet
-;; haskell
-
 (use-package use-package-chords
   :config
   (key-chord-mode 1)
+  (key-chord-define-global "kw" 'kill-word)
+  (key-chord-define-global "bw" 'backward-kill-word)
+  (key-chord-define-global "mw" 'mark-word)
+  (key-chord-define-global "ms" 'mark-sexp)
   :custom
   ;; https://github.com/emacsorphanage/key-chord/issues/6
   (key-chord-safety-interval-forward 0.1)
@@ -15,8 +16,6 @@
   (key-chord-safety-interval-forward 0)
 )
 
-;; (use-package key-chords
-  ;; )
 
 (use-package nix-mode
   :mode "\\.nix\\'"
@@ -125,10 +124,12 @@
 (use-package lsp-ui
   :commands lsp-ui-mode)
 
+
 ;; lsp-mode supports snippets, but in order for them to work you need to use yasnippet
 ;; If you don't want to use snippets set lsp-enable-snippet to nil in your lsp-mode settings
 ;;   to avoid odd behavior with snippets and indentation
 (use-package yasnippet)
+
 
 ;; To Company-lsp users:
 ;;   Company-lsp is no longer maintained and has been removed from MELPA.
@@ -147,6 +148,7 @@
   (lsp-mode . dap-ui-mode)
   )
 
+
 (use-package eno
   :chords
   (("wj" . eno-word-goto))
@@ -158,6 +160,7 @@
   (("cj" . avy-goto-subword-1))
   (("hj" . avy-goto-char)))
 
+
 (use-package yaml-mode
   :mode
   ("\\.yml\\'" . yaml-mode)
@@ -166,6 +169,7 @@
               ("C-m" . 'newline-and-indent))
   )
 
+
 (use-package markdown-mode
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
@@ -173,10 +177,12 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown"))
 
+
 (use-package helm-lsp
   :bind
   ("C-c C-a" . helm-lsp-code-actions)
   )
+
 
 (use-package lsp-mode
   :chords
@@ -184,6 +190,7 @@
   :init
   (setq lsp-lens-enable t)
   )
+
 
 (use-package lsp-haskell
   ;; :after (lsp)
@@ -219,6 +226,7 @@
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   )
 
+
 (use-package go-mode
   :hook
   (go-mode . lsp)
@@ -233,17 +241,20 @@
   ;; (add-hook 'go-mode-hook #'lsp-go-install-save-hooks)
   )
 
+
 (use-package helm-projectile
   :chords
   (("cm" . helm-projectile-switch-project)
    ("pf" . helm-projectile-find-file))
   )
 
+
 (use-package helm-ag
   :chords
   (("qw" . helm-do-ag-this-file)
    ("gm" . helm-do-ag-project-root))
   )
+
 
 (use-package helm
   ;; :preface (require 'helm-config)
@@ -265,6 +276,7 @@
     helm-default-display-buffer-functions '(display-buffer-in-side-window))
   )
 
+
 (use-package recentf
   :init
   (recentf-mode 1)
@@ -273,15 +285,18 @@
    recentf-max-menu-items 15)
   )
 
+
 (use-package projectile
   :config
   (projectile-global-mode 1)
   )
 
+
 (use-package smartparens
   :config
   (smartparens-global-mode 1)
   )
+
 
 (use-package magit
   :bind
@@ -290,10 +305,12 @@
   (setq ediff-window-setup-function 'ediff-setup-windows-plain)
   )
 
+
 (use-package monokai-theme
   :config
   (load-theme 'monokai t)
   )
+
 
 (use-package yasnippet
   :config
@@ -305,6 +322,7 @@
   (yas-reload-all)
   )
 
+
 ;; for multiple cursors: https://www.google.com/search?client=firefox-b-d&q=emacs+multiple+cursors+edit+lines#kpvalbx=_KgGdY43vE66wrgTUqY-oCQ_25
 (use-package multiple-cursors
   :bind
@@ -314,6 +332,7 @@
   ("C-c C-<" . mc/mark-all-like-this))
   )
 
+
 (use-package hydra
   :config
   (defhydra hydra-zoom (global-map "<f2>")
@@ -322,19 +341,23 @@
     ("l" text-scale-decrease "out"))
   )
 
+
 (use-package tramp)
 (use-package kubel)
 
 (use-package groovy-mode
   :config (setq groovy-indent-offset 2))
 
+
 (use-package elm-mode)
+
 
 (use-package drag-stuff
   :config
   (drag-stuff-global-mode 1)
   (drag-stuff-define-keys)
   )
+
 
 (use-package undo-tree
   :config
@@ -343,6 +366,7 @@
    undo-tree-visualizer-diff 1
    undo-tree-auto-save-history nil)
   )
+
 
 (provide 'packages)
 ;;; packages.el ends here
