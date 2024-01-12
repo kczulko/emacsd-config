@@ -290,7 +290,9 @@
 
 
 (use-package smartparens
-  :config
+  :bind
+  (("C-c p" . sp-rewrap-sexp))
+  :custom
   (smartparens-global-mode 1)
   )
 
@@ -343,7 +345,9 @@
 (use-package kubel)
 
 (use-package groovy-mode
-  :config (setq groovy-indent-offset 2))
+  :config
+  (setq-default groovy-indent-offset 2)
+  )
 
 
 (use-package elm-mode)
@@ -359,7 +363,7 @@
 (use-package undo-tree
   :config
   (global-undo-tree-mode)
-  (setq
+  (setq-default
    undo-tree-visualizer-diff 1
    undo-tree-auto-save-history nil)
   )
