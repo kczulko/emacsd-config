@@ -295,7 +295,6 @@
   (load-theme 'monokai t)
   )
 
-
 (use-package yasnippet
   :config
   (setq yas-snippet-dirs
@@ -305,7 +304,6 @@
   (yas-global-mode 1)
   (yas-reload-all)
   )
-
 
 ;; for multiple cursors: https://www.google.com/search?client=firefox-b-d&q=emacs+multiple+cursors+edit+lines#kpvalbx=_KgGdY43vE66wrgTUqY-oCQ_25
 (use-package multiple-cursors
@@ -325,6 +323,7 @@
   )
 
 (use-package tramp)
+(use-package kubel)
 
 (use-package groovy-mode
   :config (setq groovy-indent-offset 2))
@@ -335,6 +334,14 @@
   :config
   (drag-stuff-global-mode 1)
   (drag-stuff-define-keys)
+  )
+
+(use-package undo-tree
+  :config
+  (global-undo-tree-mode)
+  (setq
+   undo-tree-visualizer-diff 1
+   undo-tree-auto-save-history 0)
   )
 
 (provide 'packages)

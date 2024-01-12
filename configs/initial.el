@@ -12,7 +12,7 @@
       ring-bell-function 'ignore; no beeping
       kept-old-versions      5) ; and how many of the old
 
-(tool-bar-mode 0) 
+(tool-bar-mode 0)
 (menu-bar-mode 0)
 ;; with i3 it's not fully required now...
 ;; (toggle-frame-fullscreen)

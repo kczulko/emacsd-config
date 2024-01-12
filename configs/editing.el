@@ -1,7 +1,6 @@
-
-
 ;; highlight
 (add-hook 'prog-mode-hook 'highlight-symbol-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 (setq inhibit-startup-screen t)
 
