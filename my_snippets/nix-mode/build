@@ -1,7 +1,7 @@
 # name : nix-build
 # key : build
 # --
-{ pkgs ? import <nixpkgs> {}}:
+{ pkgs ? import <nixpkgs> {} }:
 
 let
   $0
@@ -15,8 +15,7 @@ in pkgs.stdenv.mkDerivation {
 
   installPhase = ''
     mkdir -p $out/bin
-    cp -r $src/* $out/bin
-    chmod +x $out/bin
+    install -m 755 $src/* $out/bin
     $2
   '';
 

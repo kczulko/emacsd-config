@@ -268,9 +268,11 @@
   ("C-x b" . helm-mini)
   ("C-x C-f" . helm-find-files))
   :init
-  (setq helm-always-two-windows nil
-    helm-display-buffer-default-height 23
-    helm-default-display-buffer-functions '(display-buffer-in-side-window))
+  (setq helm-always-two-windows t
+        helm-display-buffer-default-height 23
+        ;; This doesn't work since nix 24.05 update
+        ;; helm-default-display-buffer-functions '(display-buffer-in-side-window))
+        helm-default-display-buffer-functions nil)
   )
 
 
