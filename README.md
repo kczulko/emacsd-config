@@ -12,7 +12,7 @@ emacs.d config based on rabbitonweb emacs config. Now it is complementary with [
 $ mkdir -p ~/.emacs.d
 $ ln -sf $EMACS_CFG_PROJECT_ROOT/init.el ~/.emacs.d/init.el
 $ ln -sf $EMACS_CFG_PROJECT_ROOT/configs ~/.emacs.d/configs
-$ ln -sf $EMACS_CFG_PROJECT_ROOT/my_snippets ~/.emacs.d/my_snippets/
+$ ln -sf $EMACS_CFG_PROJECT_ROOT/my_snippets ~/.emacs.d/my_snippets
 ```
 
 or run `setup.sh` script.
