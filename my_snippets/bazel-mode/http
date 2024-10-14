@@ -1,0 +1,13 @@
+# name: http_archive
+# key: http
+# --
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+http_archive(
+    name = "${1:name}",
+    url = "https://github.com/${2:org}/${3:repo}/archive/refs/tags/v${4:version}.tar.gz",
+    integrity = "sha256-9/PDao5uR2IwFKmUL5oDYz/Gt4wRDMwp4aAv24HGtKg=",
+    strip_prefix = "${5:stripPrefix}",
+    build_file_content = """${6:content}
+""",
+)
+

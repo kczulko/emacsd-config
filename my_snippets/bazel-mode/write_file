@@ -1,0 +1,11 @@
+# name: write_file
+# key: write_file
+# --
+load("@bazel_skylib//rules:write_file.bzl", "write_file")
+write_file(
+    name = "${1:name}",
+    out = "${2:filename}",
+    content = ["""${3:content}"""],
+    is_executable = ${4:False},
+)
+
