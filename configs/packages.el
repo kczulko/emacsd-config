@@ -370,6 +370,10 @@
    undo-tree-auto-save-history nil)
   )
 
+(use-package nim-mode
+  :ensure t
+  :hook
+  (nim-mode . lsp))
 
 (provide 'packages)
 ;;; packages.el ends here
