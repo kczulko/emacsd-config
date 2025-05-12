@@ -375,5 +375,7 @@
   :hook
   (nim-mode . lsp))
 
+(use-package kotlin-mode)
+
 (provide 'packages)
 ;;; packages.el ends here
