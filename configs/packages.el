@@ -376,6 +376,7 @@
   (nim-mode . lsp))
 
 (use-package kotlin-mode)
+(use-package lua-mode)
 
 (provide 'packages)
 ;;; packages.el ends here
